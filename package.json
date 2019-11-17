@@ -16,8 +16,7 @@
     "amds-common:lint": "ng lint amds-common",
     "amds-common:test": "ng test amds-common --watch=false --browsers=ChromeHeadless",
     "amds-common:build": "ng build amds-common",
-    "ci:amds-common": "run-s amds-common:* ",
-    "pre-push": "run-s ci:*"
+    "ci:amds-common": "run-s amds-common:* "
   },
   "private": true,
   "dependencies": {
@@ -79,8 +78,8 @@
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged",
-      "commit-msg": "commitlint --edit",
-      "pre-push": "npm run pre-push"
+      "pre-push": "run-s ci:*",
+      "commit-msg": "commitlint --edit"
     }
   }
 }
