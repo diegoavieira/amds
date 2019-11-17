@@ -14,18 +14,30 @@ addons:
 install:
   - npm install
 
-script:
-  - npm run ci:amds-app
-
 jobs:
   include:
-    - stage: deploy github pages
+    - stage: deploy amds-app
+      script:
+        - npm run ci:amds-app
       deploy:
         provider: pages
         skip_cleanup: true
         edge: true
         github_token: $GITHUB_TOKEN
         local_dir: dist/amds-app
+        on:
+          branch: master
+    - stage: release amds-common
+      script:
+        - npm run ci:amds-common
+      before_deploy:
+        - cd dist/amds-common
+      deploy:
+        provider: npm
+        skip_cleanup: true
+        edge: true
+        email: 'diegoavieira@gmail.com'
+        api_token: $NPM_TOKEN
         on:
           branch: master
 
