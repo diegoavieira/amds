@@ -4,15 +4,22 @@ os: linux
 language: node_js
 node_js: node
 
-branches:
-  except:
-    - /^v\d+\.\d+\.\d+$/
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
+install:
+  - npm install
+
+script:
+  - npm run amds-app:ci
 
 jobs:
   include:
-    - stage: deploy
-      script:
-        - npm run amds-app:ci
+    - stage: deploy github pages
       deploy:
         provider: pages
         skip_cleanup: true
@@ -21,3 +28,7 @@ jobs:
         local_dir: dist/amds-app
         on:
           branch: master
+
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
