@@ -10,9 +10,9 @@
     "e2e": "ng e2e",
     "amds-app:lint": "ng lint amds-app",
     "amds-app:test": "ng test amds-app --watch=false --browsers=ChromeHeadless",
-    "amds-app:e2e:test": "ng e2e amds-app",
+    "amds-app:e2e": "ng e2e amds-app",
     "amds-app:build": "ng build amds-app --base-href /amds/ --prod",
-    "ci:amds-app": "run-s amds-app:** ",
+    "ci:amds-app": "run-s amds-app:* ",
     "amds-common:lint": "ng lint amds-common",
     "amds-common:test": "ng test amds-common --watch=false --browsers=ChromeHeadless",
     "amds-common:build": "ng build amds-common",
@@ -79,7 +79,7 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged",
       "commit-msg": "commitlint --edit",
-      "pre-push": "run-s ci:*"
+      "pre-push": "run-s *:test"
     }
   }
 }
