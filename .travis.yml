@@ -15,7 +15,7 @@ install:
   - npm install
 
 script:
-  - npm run amds-app:ci
+  - npm run ci:amds-app
 
 jobs:
   include:

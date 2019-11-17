@@ -12,11 +12,11 @@
     "amds-app:test": "ng test amds-app --watch=false --browsers=ChromeHeadless",
     "amds-app:e2e": "ng e2e amds-app",
     "amds-app:build": "ng build amds-app --base-href /amds/ --prod",
-    "amds-app:ci": "run-s amds-app:* ",
+    "ci:amds-app": "run-s amds-app:* ",
     "amds-common:lint": "ng lint amds-common",
     "amds-common:test": "ng test amds-common --watch=false --browsers=ChromeHeadless",
     "amds-common:build": "ng build amds-common",
-    "amds-common:ci": "run-s amds-common:* "
+    "ci:amds-common": "run-s amds-common:* "
   },
   "private": true,
   "dependencies": {
@@ -79,7 +79,7 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged",
       "commit-msg": "commitlint --edit",
-      "pre-push": "run-s *:ci"
+      "pre-push": "npm-run-all -s ci:*"
     }
   }
 }
