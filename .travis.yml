@@ -1,0 +1,24 @@
+dist: trusty
+os: linux
+
+language: node_js
+node_js: node
+
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
+
+jobs:
+  include:
+    - stage: deploy
+      script:
+        - npm run lint
+        - npm run build
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        edge: true
+        github_token: $GITHUB_TOKEN
+        local_dir: dist/amds-app
+        on:
+          branch: master

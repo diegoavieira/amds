@@ -1,0 +1,164 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "amds-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/amds-app",
+      "sourceRoot": "projects/amds-app/src",
+      "prefix": "amds-app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/amds-app",
+            "index": "projects/amds-app/src/index.html",
+            "main": "projects/amds-app/src/main.ts",
+            "polyfills": "projects/amds-app/src/polyfills.ts",
+            "tsConfig": "projects/amds-app/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/amds-app/src/favicon.ico",
+              "projects/amds-app/src/assets"
+            ],
+            "styles": [
+              "projects/amds-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/amds-app/src/environments/environment.ts",
+                  "with": "projects/amds-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "amds-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "amds-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "amds-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/amds-app/src/test.ts",
+            "polyfills": "projects/amds-app/src/polyfills.ts",
+            "tsConfig": "projects/amds-app/tsconfig.spec.json",
+            "karmaConfig": "projects/amds-app/karma.conf.js",
+            "assets": [
+              "projects/amds-app/src/favicon.ico",
+              "projects/amds-app/src/assets"
+            ],
+            "styles": [
+              "projects/amds-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/amds-app/tsconfig.app.json",
+              "projects/amds-app/tsconfig.spec.json",
+              "projects/amds-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/amds-app/e2e/protractor.conf.js",
+            "devServerTarget": "amds-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "amds-app:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "amds-common": {
+      "projectType": "library",
+      "root": "projects/amds-common",
+      "sourceRoot": "projects/amds-common/src",
+      "prefix": "amds-common",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/amds-common/tsconfig.lib.json",
+            "project": "projects/amds-common/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/amds-common/src/test.ts",
+            "tsConfig": "projects/amds-common/tsconfig.spec.json",
+            "karmaConfig": "projects/amds-common/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/amds-common/tsconfig.lib.json",
+              "projects/amds-common/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "defaultProject": "amds-app"
+}
