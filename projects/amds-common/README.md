@@ -1,3 +1,3 @@
-# Common - Angular Material Design System
+# Angular Material Design System - Common
 
-[Demonstration](https://diegoavieira.github.io/amds).
+The sources for this package are in the main [Angular Material Design System](https://github.com/diegoavieira/amds#readme) repo.

@@ -1,6 +1,19 @@
 {
   "name": "amds",
   "version": "0.0.0-lerna",
+  "description": "Angular Material Design System",
+  "keywords": [
+    "angular",
+    "material",
+    "library"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/diegoavieira/amds.git"
+  },
+  "homepage": "https://github.com/diegoavieira/amds",
+  "bugs": "https://github.com/diegoavieira/amds/issues",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -18,6 +31,7 @@
     "amds-common:build": "ng build amds-common",
     "ci:amds-common": "run-s amds-common:* "
   },
+  "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.4",
     "@angular/common": "~8.2.4",
