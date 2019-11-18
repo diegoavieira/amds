@@ -1,11 +1,23 @@
 {
   "name": "@amds/common",
-  "version": "0.0.9",
+  "version": "0.0.10",
+  "description": "This library is part of project Angular Material Design System",
+  "keywords": [
+    "Angular",
+    "Material",
+    "Library"
+  ],
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/diegoavieira/amds"
+  },
+  "homepage": "https://diegoavieira.github.io/amds",
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
