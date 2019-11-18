@@ -3,16 +3,17 @@
   "version": "0.0.0-lerna",
   "description": "Angular Material Design System",
   "keywords": [
-    "Angular",
-    "Material",
-    "Library"
+    "angular",
+    "material",
+    "library"
   ],
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/diegoavieira/amds"
+    "url": "https://github.com/diegoavieira/amds.git"
   },
-  "homepage": "https://diegoavieira.github.io/amds",
+  "homepage": "https://github.com/diegoavieira/amds",
+  "bugs": "https://github.com/diegoavieira/amds/issues",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
