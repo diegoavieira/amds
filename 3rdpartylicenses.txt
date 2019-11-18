@@ -1,4 +1,5 @@
 @amds/common
+SEE LICENSE IN LICENSE
 
 @angular-devkit/build-angular
 MIT
