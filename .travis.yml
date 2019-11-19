@@ -45,7 +45,7 @@ jobs:
 
     - stage: release
       script:
-        - npm run ci:amds-common
+        - npm run amds-common:build
       before_deploy:
         - cd dist/amds-common
       deploy:
