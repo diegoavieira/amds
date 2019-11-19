@@ -3,16 +3,17 @@
   "version": "0.0.0-lerna",
   "description": "Angular Material Design System",
   "keywords": [
-    "Angular",
-    "Material",
-    "Library"
+    "angular",
+    "material",
+    "library"
   ],
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/diegoavieira/amds"
+    "url": "https://github.com/diegoavieira/amds.git"
   },
-  "homepage": "https://diegoavieira.github.io/amds",
+  "homepage": "https://github.com/diegoavieira/amds",
+  "bugs": "https://github.com/diegoavieira/amds/issues",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -21,14 +22,17 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "amds-app:lint": "ng lint amds-app",
-    "amds-app:test": "ng test amds-app --watch=false --browsers=ChromeHeadless",
+    "amds-app:test": "ng test amds-app --code-coverage --watch=false --browsers=ChromeHeadless",
+    "amds-app:codecov": "cat ./coverage/amds-app/lcov.info | ./node_modules/.bin/codecov",
     "amds-app:e2e": "ng e2e amds-app",
     "amds-app:build": "ng build amds-app --base-href /amds/ --prod",
-    "ci:amds-app": "run-s amds-app:* ",
     "amds-common:lint": "ng lint amds-common",
-    "amds-common:test": "ng test amds-common --watch=false --browsers=ChromeHeadless",
+    "amds-common:test": "ng test amds-common --code-coverage --watch=false --browsers=ChromeHeadless",
+    "amds-common:codecov": "cat ./coverage/amds-common/lcov.info | ./node_modules/.bin/codecov",
     "amds-common:build": "ng build amds-common",
-    "ci:amds-common": "run-s amds-common:* "
+    "lint:all": "run-s *:lint",
+    "test:all": "run-s *:test",
+    "codecov:all": "run-s *:codecov"
   },
   "private": true,
   "dependencies": {
@@ -55,6 +59,7 @@
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "codecov": "^3.6.1",
     "codelyzer": "^5.0.0",
     "cz-conventional-changelog": "^3.0.2",
     "husky": "^3.0.9",
@@ -91,7 +96,7 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged",
       "commit-msg": "commitlint --edit",
-      "pre-push": "run-s *:test"
+      "pre-push": "run-s lint:all test:all"
     }
   }
 }
