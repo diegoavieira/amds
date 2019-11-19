@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.14](https://github.com/diegoavieira/amds/compare/v0.0.13...v0.0.14) (2019-11-19)
+
+### Bug Fixes
+
+- adjustments tests ([b87f170](https://github.com/diegoavieira/amds/commit/b87f170d2ca3bbf3cd8fb2c38b0a5a9376351e1e))
+
+## [0.0.13](https://github.com/diegoavieira/amds/compare/v0.0.12...v0.0.13) (2019-11-19)
+
+### Bug Fixes
+
+- adjustments tests ([0b5b3a6](https://github.com/diegoavieira/amds/commit/0b5b3a6a8df0aca29b5ae0ff320d5f1d674107ed))
+
 ## [0.0.12](https://github.com/diegoavieira/amds/compare/v0.0.11...v0.0.12) (2019-11-19)
 
 ### Bug Fixes
