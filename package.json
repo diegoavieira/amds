@@ -22,14 +22,17 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "amds-app:lint": "ng lint amds-app",
-    "amds-app:test": "ng test amds-app --watch=false --browsers=ChromeHeadless",
+    "amds-app:test": "ng test amds-app --code-coverage --watch=false --browsers=ChromeHeadless",
+    "amds-app:codecov": "cat ./coverage/amds-app/lcov.info | codecov",
     "amds-app:e2e": "ng e2e amds-app",
     "amds-app:build": "ng build amds-app --base-href /amds/ --prod",
-    "ci:amds-app": "run-s amds-app:* ",
     "amds-common:lint": "ng lint amds-common",
-    "amds-common:test": "ng test amds-common --watch=false --browsers=ChromeHeadless",
+    "amds-common:test": "ng test amds-common --code-coverage --watch=false --browsers=ChromeHeadless",
+    "amds-common:codecov": "cat ./coverage/amds-common/lcov.info | codecov",
     "amds-common:build": "ng build amds-common",
-    "ci:amds-common": "run-s amds-common:* "
+    "ci:lint": "run-s *:lint",
+    "ci:test": "run-s *:test",
+    "ci:codecov": "run-s *:codecov"
   },
   "private": true,
   "dependencies": {
