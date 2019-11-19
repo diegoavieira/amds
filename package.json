@@ -95,7 +95,7 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged",
       "commit-msg": "commitlint --edit",
-      "pre-push": "run-s *:test"
+      "pre-push": "run-s ci:test"
     }
   }
 }
