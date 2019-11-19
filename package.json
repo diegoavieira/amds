@@ -30,9 +30,9 @@
     "amds-common:test": "ng test amds-common --code-coverage --watch=false --browsers=ChromeHeadless",
     "amds-common:codecov": "cat ./coverage/amds-common/lcov.info | codecov",
     "amds-common:build": "ng build amds-common",
-    "ci:lint": "run-s *:lint",
-    "ci:test": "run-s *:test",
-    "ci:codecov": "run-s *:codecov"
+    "lint:all": "run-s *:lint",
+    "test:all": "run-s *:test",
+    "codecov:all": "run-s *:codecov"
   },
   "private": true,
   "dependencies": {
@@ -95,7 +95,7 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged",
       "commit-msg": "commitlint --edit",
-      "pre-push": "run-s ci:test"
+      "pre-push": "run-s test:all"
     }
   }
 }
